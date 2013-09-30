@@ -3,26 +3,22 @@ using System.Collections;
 
 public class Rigid_contorler : MonoBehaviour {
 	
-	public float maxSpeedForward = 20, maxSpeedSideways = 10, maxSpeedBack = 15;
-	public float accelerationFactor = .5f, maxSprintMultiplier = 3;
-	public float maxJumpDuration = 100, curJumpDuration, jumpSpeed = 10;	
-	
-	public float curSpeedForward, curSpeedSideways, curSpeedBackwards, curSprintMultiplier;	
-	public bool isMovingForward, isMovingRight, isMovingLeft, isMovingBackwards, isSprinting, isAirBorn, isJumping;
+	public float maxSpeedForward = 20, maxSpeedBack = 15;
+	public float accelerationFactor = .5f, maxSprintMultiplier = 3, maxSprintTime = 5;
+	public float maxJumpDuration = 2, curJumpDuration, jumpSpeed = 7, curSprintTime;	
+	public float curSpeedForward, curSpeedBackwards, curSprintMultiplier;	
+	public bool isMovingForward, isTurningRight, isTurningLeft, isMovingBackwards, isSprinting, isAirBorn, isJumping;
 	private Transform myTrans;
+	
+	
+	//no clue how it works, but these are needed to rotate
+	public Quaternion deltaRotation1, deltaRotation2;
+	public Vector3 eulerAngleVelocity1 = new Vector3 (0, -100, 0);
+	public Vector3 eulerAngleVelocity2 = new Vector3 (0, 100, 0);
 	
 	// Use this for initialization
 	void Start () {
 		myTrans = transform;
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-		CheckButtons();
-		
-		FindMovement();
-
-		Move();
 	}
 	
 	private void Move(){
@@ -31,7 +27,15 @@ public class Rigid_contorler : MonoBehaviour {
 		
 		myTrans.position -= myTrans.forward * curSprintMultiplier * curSpeedBackwards * Time.deltaTime;
 		
-		myTrans.position += myTrans.right * curSprintMultiplier * curSpeedSideways * Time.deltaTime;
+		deltaRotation1 = Quaternion.Euler(eulerAngleVelocity1 * Time.deltaTime);
+		deltaRotation2 = Quaternion.Euler(eulerAngleVelocity2 * Time.deltaTime);
+		
+		if (isTurningLeft == true){		
+		rigidbody.MoveRotation(rigidbody.rotation * deltaRotation2);
+		}
+		if (isTurningRight == true){		
+		rigidbody.MoveRotation(rigidbody.rotation * deltaRotation1);
+		}
 		
 		Jump();
 		
@@ -57,25 +61,22 @@ public class Rigid_contorler : MonoBehaviour {
 			if(curSpeedBackwards < 0) curSpeedBackwards = 0;
 		}
 		
-		if(isMovingRight == true){
-			curSpeedSideways += accelerationFactor;
-			if(curSpeedSideways > maxSpeedSideways) curSpeedSideways = maxSpeedSideways;
-		}else if(isMovingLeft == true){
-			curSpeedSideways -= accelerationFactor;
-			if(curSpeedSideways < -maxSpeedSideways) curSpeedSideways = -maxSpeedSideways;
-		}else{
-			curSpeedSideways += accelerationFactor;
-			if(curSpeedSideways > 0) curSpeedSideways = 0;
-		}
-		
 		if(isSprinting == true){
 			curSprintMultiplier += Time.deltaTime;
 			
 			if(curSprintMultiplier > maxSprintMultiplier) curSprintMultiplier = maxSprintMultiplier;
+			
+			curSprintTime += Time.deltaTime;
+			
+			if(curSprintTime > maxSprintTime) isSprinting = false;
 		}else{
 			curSprintMultiplier -= Time.deltaTime;
 			
 			if(curSprintMultiplier < 1) curSprintMultiplier = 1;
+			
+			curSprintTime -= Time.deltaTime;
+			
+			if(curSprintTime < 0)curSprintTime = 0;
 		}
 		
 		if(isJumping == true){
@@ -99,20 +100,20 @@ public class Rigid_contorler : MonoBehaviour {
 		}
 		
 		if(Input.GetKeyDown(KeyCode.A)){
-			isMovingLeft = true;	
+			isTurningLeft = true;	
 		}
 		if(Input.GetKeyUp(KeyCode.A)){
-			isMovingLeft = false;	
+			isTurningLeft = false;	
 		}
 		
 		if(Input.GetKeyDown(KeyCode.D)){
-			isMovingRight = true;	
+			isTurningRight = true;	
 		}
 		if(Input.GetKeyUp(KeyCode.D)){
-			isMovingRight = false;	
+			isTurningRight = false;	
 		}
 		
-		if(Input.GetKeyDown(KeyCode.LeftShift)){
+		if(Input.GetKeyDown(KeyCode.LeftShift) && curSprintTime == 0){
 			isSprinting = true;	
 		}
 		if(Input.GetKeyUp(KeyCode.LeftShift)){
@@ -137,8 +138,21 @@ public class Rigid_contorler : MonoBehaviour {
 	void OnCollisionEnter(Collision col){
 		if(col.gameObject.tag == "Ground"){
 			isAirBorn = false;
-		}else{
-			isAirBorn = true;	
 		}
+	}
+	
+	void OnCollisionExit(Collision col){
+		if(col.gameObject.tag == "Ground"){
+			isAirBorn = true;
+		}
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+		CheckButtons();
+		
+		FindMovement();
+
+		Move();
 	}
 }
