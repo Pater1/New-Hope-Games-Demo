@@ -51,13 +51,6 @@ public class ally_targeting : MonoBehaviour {
 	}
 	
 	private void FindDead(){
-		foreach(Transform enemy in targets){
-			if(enemy == null){
-				Debug.Log("HI");
-				targets = new List<Transform>();
-				AddAllEnemy();
-			}
-		}
 	}
 	
 	// Update is called once per frame

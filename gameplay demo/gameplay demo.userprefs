@@ -2,13 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\sripts\ally_targeting.cs">
     <Files>
+      <File FileName="Assets\sripts\Enemy_health_tracking.cs" Line="1" Column="1" />
       <File FileName="Assets\sripts\Ally_Health_Tracking.cs" Line="1" Column="1" />
       <File FileName="Assets\sripts\ally_targeting.cs" Line="29" Column="2" />
-      <File FileName="Assets\sripts\Player_Combat.cs" Line="26" Column="4" />
-      <File FileName="Assets\sripts\Enemy_health_tracking.cs" Line="6" Column="39" />
+      <File FileName="Assets\sripts\Player_Combat.cs" Line="1" Column="1" />
       <File FileName="Assets\sripts\hover.cs" Line="1" Column="1" />
-      <File FileName="Assets\sripts\Rigid_contorler.cs" Line="8" Column="36" />
-      <File FileName="Assets\sripts\Enemy_AI.cs" Line="43" Column="70" />
+      <File FileName="Assets\sripts\Rigid_contorler.cs" Line="1" Column="1" />
+      <File FileName="Assets\sripts\Enemy_AI.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Enemy_health_tracking : MonoBehaviour {
 	
@@ -20,7 +21,7 @@ public class Enemy_health_tracking : MonoBehaviour {
 		AddjustCurentHealth(0);
 		
 		if(curHealth <= 0){
-			Destroy(gameObject);
+			Destroy(gameObject);		
 		}
 	}
 	

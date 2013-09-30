@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Player_Combat : MonoBehaviour {
 	
@@ -23,6 +24,13 @@ public class Player_Combat : MonoBehaviour {
 				Attack();
 				timer = coolDown;
 			}
+		}
+		if(target == null){
+			ally_targeting al = (ally_targeting) GetComponent ("ally_targeting");
+			
+			al.targets  = new System.Collections.Generic.List<UnityEngine.Transform>();
+			
+			al.AddAllEnemy();
 		}
 	}
 	
