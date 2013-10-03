@@ -16,9 +16,22 @@ public class Rigid_contorler : MonoBehaviour {
 	public Vector3 eulerAngleVelocity1 = new Vector3 (0, -100, 0);
 	public Vector3 eulerAngleVelocity2 = new Vector3 (0, 100, 0);
 	
+	/*public RaycastHit hit;
+	public Ray ray;
+	public Collider someCollider;
+	public float slope;
+	
+	public bool Raycast(Ray ray, RaycastHit hitInfo, float distance);*/
 	// Use this for initialization
 	void Start () {
 		myTrans = transform;
+		
+		//ray = new Ray (transform.position, Vector3.down);
+		
+		//GameObject go = GameObject.FindGameObjectWithTag("Ground");
+		
+		//someCollider = go.collider();
+		
 	}
 	
 	private void Move(){
@@ -42,6 +55,11 @@ public class Rigid_contorler : MonoBehaviour {
 		if(isJumping == true){
 			myTrans.position += myTrans.up * curJumpDuration * jumpSpeed * Time.deltaTime;
 		}
+		
+		/*if (someCollider.Raycast(ray, hit, 10)){
+			//slope = hit.normal();
+    		transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+		}*/
 	}
 	
 	private void FindMovement(){
@@ -154,5 +172,7 @@ public class Rigid_contorler : MonoBehaviour {
 		FindMovement();
 
 		Move();
+		
+		//ray = new Ray(transform.position, Vector3.down);
 	}
 }
