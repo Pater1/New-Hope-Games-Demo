@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\SwimTrigger.cs" />
      <Compile Include="Assets\character stats\characterA base.cs" />
      <Compile Include="Assets\sripts\Ally_Health_Tracking.cs" />
      <Compile Include="Assets\sripts\Char_controller.cs" />
