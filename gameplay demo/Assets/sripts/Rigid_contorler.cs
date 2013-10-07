@@ -199,5 +199,7 @@ public class Rigid_contorler : MonoBehaviour {
 		Move();
 				
 		ray = new Ray(transform.position, Vector3.down);
+		
+		if(isAirBorn == true || isJumping == true) isSprinting = false;
 	}
 }
