@@ -26,6 +26,7 @@ public class Rigid_contorler : MonoBehaviour {
 		myRot = myTrans.rotation;
 		
 		ray = new Ray (transform.position, Vector3.down);
+		
 				
 	}
 	
@@ -65,7 +66,6 @@ public class Rigid_contorler : MonoBehaviour {
 				if(curSpeedForward > horSwimSpeed) curSpeedForward = horSwimSpeed;
 			}else{
 				if(curSpeedForward > maxSpeedForward) curSpeedForward = maxSpeedForward;
-				//animation.Play("walk");
 			}
 		}else{
 			curSpeedForward -= accelerationFactor;
@@ -183,7 +183,13 @@ public class Rigid_contorler : MonoBehaviour {
 			isAirBorn = false;
 		}
 	}
-		
+	
+	void OnCollisionStay(Collision col){
+		if(col.gameObject.tag == "Ground"){
+			isAirBorn = false;
+		}
+	}
+	
 	void OnCollisionExit(Collision col){
 		if(col.gameObject.tag == "Ground"){
 			isAirBorn = true;

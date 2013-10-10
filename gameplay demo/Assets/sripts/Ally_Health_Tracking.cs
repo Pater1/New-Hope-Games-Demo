@@ -36,4 +36,10 @@ public class Ally_Health_Tracking : MonoBehaviour {
 		
 		healthBarLength = (Screen.width/2) * (curHealth / (float)maxHealth);
 	}
+	
+	void OnCollisionStay(Collision col){
+		if(col.gameObject.tag == "Fire"){
+			curHealth --;
+		}
+	}
 }
