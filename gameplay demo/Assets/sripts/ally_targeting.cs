@@ -45,7 +45,7 @@ public class ally_targeting : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {		
 		FindActive();
 	}
 }

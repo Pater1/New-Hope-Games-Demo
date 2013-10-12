@@ -6,7 +6,7 @@ public class Rigid_contorler : MonoBehaviour {
 	public float maxSpeedForward = 20, maxSpeedBack = 15, maxJumpDuration = 5, vertSwimSpeed = 5, horSwimSpeed = 10;
 	public float accelerationFactor = .5f, maxSprintMultiplier = 3, maxSprintTime = 5, jumpSpeed = 7;
 	private float curJumpDuration, curSprintTime, curSpeedForward, curSpeedBackwards, curSprintMultiplier;	
-	public bool isMovingForward, isTurningRight, isTurningLeft, isMovingBackwards, isSprinting, isAirBorn, isJumping, isSwimming;
+	public bool isMovingForward, isTurningRight, isTurningLeft, isMovingBackwards, isSprinting, isAirBorn, isJumping, isSwimming, isSliding;
 	private Transform myTrans;
 	private Quaternion myRot;
 	
@@ -15,18 +15,12 @@ public class Rigid_contorler : MonoBehaviour {
 	//no clue how it works, but these are needed to rotate
 	private Quaternion deltaRotation;
 	public Vector3 eulerAngleVelocity = new Vector3 (0, 100, 0);
-	
-	private RaycastHit hit;
-	private Ray ray;
-	private Vector3 slope;
+
+	public Vector3 slope;
 	
 	// Use this for initialization
 	void Start () {
 		myTrans = transform;
-		
-		myRot = myTrans.rotation;
-		
-		ray = new Ray (transform.position, Vector3.down);
 		
 		LoadNewScene lo = (LoadNewScene) GetComponent ("LoadNewScene");
 		
@@ -54,71 +48,76 @@ public class Rigid_contorler : MonoBehaviour {
 		}else{
 			myTrans.position += myTrans.up * curJumpDuration * jumpSpeed * Time.deltaTime;
 		}
-		
-		if (Physics.Raycast(ray, out hit ,10)){
-			if(hit.collider.tag == "Ground"){
-				slope = hit.normal;
-			}
-		}
 	}
 	
 	private void FindMovement(){
-		if(isMovingForward == true){
-			curSpeedForward += accelerationFactor;
-			if(isSwimming == true){
-				if(curSpeedForward > horSwimSpeed) curSpeedForward = horSwimSpeed;
-			}else{
-				if(curSpeedForward > maxSpeedForward) curSpeedForward = maxSpeedForward;
-			}
-		}else{
-			curSpeedForward -= accelerationFactor;
-			if(curSpeedForward < 0) curSpeedForward = 0;
-		}
 		
-		if(isMovingBackwards == true){
+		if(isSliding == true){
+			isMovingForward = false;
 			curSpeedBackwards += accelerationFactor;
-			if(isSwimming == true){
-				if(curSpeedBackwards > horSwimSpeed) curSpeedBackwards = horSwimSpeed;
+			if(curSpeedBackwards > maxSpeedBack && isSliding == true) curSpeedBackwards = maxSpeedBack*8;
+		}else{
+		
+			if(isMovingForward == true){
+				curSpeedForward += accelerationFactor;
+				if(isSwimming == true){
+					if(curSpeedForward > horSwimSpeed) curSpeedForward = horSwimSpeed;
+				}else{
+					if(curSpeedForward > maxSpeedForward) curSpeedForward = maxSpeedForward;
+				}
 			}else{
-				if(curSpeedBackwards > maxSpeedBack) curSpeedBackwards = maxSpeedBack;
+				curSpeedForward -= accelerationFactor;
+				if(curSpeedForward < 0) curSpeedForward = 0;
+				curSpeedBackwards -= accelerationFactor;
 			}
-		}else{
-			curSpeedBackwards -= accelerationFactor;
-			if(curSpeedBackwards < 0) curSpeedBackwards = 0;
-		}
-		
-		if (isTurningLeft == true){		
-			deltaRotation = Quaternion.Euler(-eulerAngleVelocity * Time.deltaTime);	
-		}else if (isTurningRight == true){		
-			deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
-		}else{
-			deltaRotation = Quaternion.identity;	
-		}
-		
-		if(isSprinting == true){
-			curSprintMultiplier += Time.deltaTime;
 			
-			if(curSprintMultiplier > maxSprintMultiplier) curSprintMultiplier = maxSprintMultiplier;
+			if(isMovingBackwards == true){
+				
+				curSpeedBackwards -= accelerationFactor;
+				
+				if(isSwimming == true){
+					if(curSpeedBackwards < horSwimSpeed) curSpeedBackwards = horSwimSpeed;
+				}else{
+					if(curSpeedBackwards < maxSpeedBack) curSpeedBackwards = maxSpeedBack;
+				}
+			}else{
+				curSpeedBackwards += accelerationFactor;
+				if(curSpeedBackwards > 0) curSpeedBackwards = 0;
+			}
 			
-			curSprintTime += Time.deltaTime;
+			if (isTurningLeft == true){		
+				deltaRotation = Quaternion.Euler(-eulerAngleVelocity * Time.deltaTime);	
+			}else if (isTurningRight == true){		
+				deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
+			}else{
+				deltaRotation = Quaternion.identity;	
+			}
 			
-			if(curSprintTime > maxSprintTime) isSprinting = false;
-		}else{
-			curSprintMultiplier -= Time.deltaTime;
+			if(isSprinting == true){
+				curSprintMultiplier += Time.deltaTime;
+				
+				if(curSprintMultiplier > maxSprintMultiplier) curSprintMultiplier = maxSprintMultiplier;
+				
+				curSprintTime += Time.deltaTime;
+				
+				if(curSprintTime > maxSprintTime) isSprinting = false;
+			}else{
+				curSprintMultiplier -= Time.deltaTime;
+				
+				if(curSprintMultiplier < 1) curSprintMultiplier = 1;
+				
+				curSprintTime -= Time.deltaTime;
+				
+				if(curSprintTime < 0)curSprintTime = 0;
+			}
 			
-			if(curSprintMultiplier < 1) curSprintMultiplier = 1;
-			
-			curSprintTime -= Time.deltaTime;
-			
-			if(curSprintTime < 0)curSprintTime = 0;
-		}
-		
-		if(isJumping == true){
-			curJumpDuration += Time.deltaTime;
-			if(curJumpDuration > maxJumpDuration) curJumpDuration = maxJumpDuration;
-		}else{
-			curJumpDuration -= Time.deltaTime;	
-			if(curJumpDuration < 0) curJumpDuration = 0;
+			if(isJumping == true){
+				curJumpDuration += Time.deltaTime;
+				if(curJumpDuration > maxJumpDuration) curJumpDuration = maxJumpDuration;
+			}else{
+				curJumpDuration -= Time.deltaTime;	
+				if(curJumpDuration < 0) curJumpDuration = 0;
+			}
 		}
 	}
 	
@@ -131,7 +130,7 @@ public class Rigid_contorler : MonoBehaviour {
 		}
 		
 		if(Input.GetKeyDown(KeyCode.S)){
-			isMovingBackwards = true;	
+			isMovingBackwards = true;
 		}
 		if(Input.GetKeyUp(KeyCode.S)){
 			isMovingBackwards = false;	
@@ -183,20 +182,49 @@ public class Rigid_contorler : MonoBehaviour {
 	
 	public void FindObstacles(){
 		
-		RaycastHit groundOut;
+		RaycastHit groundOut, wallOut;
 		
-		if(Physics.Raycast(myTrans.position,Vector3.down,out groundOut,4)){
+		Ray groundRay, wallRay;
+		
+		groundRay = new Ray (myTrans.position,Vector3.down);
+		
+		wallRay = new Ray (myTrans.position,myTrans.forward);
+		
+		if(Physics.Raycast(groundRay,out groundOut,4)){
 			isAirBorn = false;
-		}	
-		else{
+		}else{
 			isAirBorn = true;
 		}
 		
-		Debug.DrawRay(myTrans.position,Vector3.down,Color.red);
+		if(Physics.Raycast(groundRay,out groundOut)){			
+			slope = groundOut.normal;
+		}
+		
+		if(Physics.Raycast(wallRay,out groundOut,2)){
+			//curSpeedForward = 0;
+		}
+	}
+	
+	public void SlopeCalc(){	
+		
+		if(slope.x > .4 || slope.x < -.4){
+			if(isSprinting == true){
+				isSprinting = false	;
+			}else if (curSprintMultiplier == 1){
+				isMovingForward = false;
+				isSliding = true;
+			}
+		}
+		
+		if(slope.x < .2 || slope.x > -.2){
+			isSliding = false;
+		}
+		
+		
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate () {		
 		CheckButtons();
 		
 		FindMovement();
@@ -204,13 +232,9 @@ public class Rigid_contorler : MonoBehaviour {
 		Move();
 		
 		FindObstacles();
-				
-		ray = new Ray(transform.position, Vector3.down);
+		
+		SlopeCalc();
 		
 		if(isAirBorn == true || isJumping == true) isSprinting = false;
-	}
-	
-	void OnLevelWasLoaded(){
-		//Destroy(character);
 	}
 }

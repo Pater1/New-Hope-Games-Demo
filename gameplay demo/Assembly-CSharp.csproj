@@ -116,9 +116,12 @@
      <Compile Include="Assets\sripts\LoadNewScene.cs" />
      <Compile Include="Assets\sripts\Player_Combat.cs" />
      <Compile Include="Assets\sripts\Rigid_contorler.cs" />
+     <Compile Include="Assets\sripts\SpawnEnemy.cs" />
+     <Compile Include="Assets\sripts\SpawnItems.cs" />
      <Compile Include="Assets\sripts\SwimTrigger.cs" />
      <Compile Include="Assets\sripts\ally_targeting.cs" />
      <Compile Include="Assets\sripts\hover.cs" />
+     <Compile Include="Assets\sripts\steadyRot.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh2.shader" />
