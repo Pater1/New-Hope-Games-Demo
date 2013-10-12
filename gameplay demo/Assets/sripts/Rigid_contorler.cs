@@ -181,22 +181,18 @@ public class Rigid_contorler : MonoBehaviour {
 		}
 	}
 	
-	void OnCollisionEnter(Collision col){
-		if(col.gameObject.tag == "Ground"){
+	public void FindObstacles(){
+		
+		RaycastHit groundOut;
+		
+		if(Physics.Raycast(myTrans.position,Vector3.down,out groundOut,4)){
 			isAirBorn = false;
-		}
-	}
-	
-	void OnCollisionStay(Collision col){
-		if(col.gameObject.tag == "Ground"){
-			isAirBorn = false;
-		}
-	}
-	
-	void OnCollisionExit(Collision col){
-		if(col.gameObject.tag == "Ground"){
+		}	
+		else{
 			isAirBorn = true;
 		}
+		
+		Debug.DrawRay(myTrans.position,Vector3.down,Color.red);
 	}
 	
 	// Update is called once per frame
@@ -206,6 +202,8 @@ public class Rigid_contorler : MonoBehaviour {
 		FindMovement();
 
 		Move();
+		
+		FindObstacles();
 				
 		ray = new Ray(transform.position, Vector3.down);
 		
