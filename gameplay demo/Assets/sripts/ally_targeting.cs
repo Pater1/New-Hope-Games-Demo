@@ -44,18 +44,8 @@ public class ally_targeting : MonoBehaviour {
 		pc.target = activeTarget.gameObject;
 	}
 	
-	private void SelectActive(){
-		Enemy_health_tracking eh = (Enemy_health_tracking)activeTarget.GetComponent("Enemy_health_tracking");
-		
-		eh.healthBarPlace = 10;
-	}
-	
-	private void FindDead(){
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		FindActive();
-		FindDead();
 	}
 }

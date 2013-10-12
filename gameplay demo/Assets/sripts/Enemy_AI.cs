@@ -6,29 +6,55 @@ public class Enemy_AI : MonoBehaviour {
 	public Transform target;
 	public int moveSpeed = 10, rotSpeed = 30, maxDistance = 100, minDistance = 2;
 	
+	public float direction;
+	
+	public string idleBehavior = "BoundWander";
+	
 	public Transform myTrans;
 	public Vector3 initialTrans;
-	public bool isFollowing, isOutOfBounds;
+	public bool isFollowing;
 	
 	public float curDisRand, curRotRand, rotRandUpdate, updateRand;
 	
-	void Awake(){
-		myTrans = transform;
-		initialTrans = myTrans.position;
-	}
 	
 	// Use this for initialization
 	void Start () {
-		GameObject go = GameObject.FindGameObjectWithTag("Player");
 		
+		myTrans = transform;
+		initialTrans = myTrans.position;
+		
+		GameObject go = GameObject.FindGameObjectWithTag("Player");
 		target = go.transform;
 		
 		curDisRand = Random.Range(0,moveSpeed);
-		rotRandUpdate = Random.Range(-360, 360);
+		rotRandUpdate = Random.Range(-360, 360);	
+	}
+	
+	private void FreeWander(){
+		
+		updateRand = Random.Range(0,5);
+		
+		if(updateRand == 0){
+			curDisRand = Random.Range(0,moveSpeed);
+			rotRandUpdate = Random.Range(-360, 360);
+		}
+		
+		if(curDisRand < moveSpeed/5) curDisRand = 0;
+		
+		if(rotRandUpdate > 200 || rotRandUpdate < -200){
+			curRotRand = rotRandUpdate;	
+		}	
+		
+		myTrans.position += myTrans.forward * curDisRand* Time.deltaTime;
+		
+		myTrans.rotation = Quaternion.Slerp(myTrans.rotation, Quaternion.Euler(myTrans.up * curRotRand), Time.deltaTime);
+		
 		
 	}
 	
-	private void Wander(){
+	private void BoundWander(){
+		
+		bool isOutOfBounds = false;
 		
 		updateRand = Random.Range(0,5);
 		
@@ -67,15 +93,6 @@ public class Enemy_AI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.DrawLine(target.position,myTrans.position,Color.red);
-		
-		if (Vector3.Distance(target.position, myTrans.position) < maxDistance){
-			isFollowing = true;
-		}
-		if (Vector3.Distance(target.position, myTrans.position) > maxDistance){
-			isFollowing = false;
-		}
-		
 		if (isFollowing == true){
 			if (Vector3.Distance(target.position, myTrans.position) > minDistance){
 				//Look at target
@@ -85,7 +102,12 @@ public class Enemy_AI : MonoBehaviour {
 				myTrans.position += myTrans.forward * moveSpeed * Time.deltaTime;
 			}	
 		}else{
-			Wander();	
+			if(idleBehavior == "BoundWander"){
+				BoundWander();
+			}
+			if(idleBehavior == "FreeWander"){
+				FreeWander();
+			}
 		}
 	}
 }

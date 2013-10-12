@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Player_Combat : MonoBehaviour {
 	
 	public GameObject target;
-	public float timer, coolDown;
+	public float timer, coolDown, range = 3;
 	// Use this for initialization
 	void Start () {
 		timer = 0;
@@ -41,12 +41,17 @@ public class Player_Combat : MonoBehaviour {
 		
 		float direction = Vector3.Dot(dir, transform.forward);
 		
-		if (distance < 3){
+		if (distance < range){
 			if (direction > 0){
 				
+				Enemy_AI ea = (Enemy_AI) target.GetComponent("Enemy_AI");
 				Enemy_health_tracking eh = (Enemy_health_tracking)target.GetComponent("Enemy_health_tracking");
 				
-				eh.AddjustCurentHealth(-10);
+				if(ea.isFollowing == false){
+					eh.curHealth = 0;
+				}else{
+					eh.AddjustCurentHealth(-10);
+				}
 				
 			}
 		}

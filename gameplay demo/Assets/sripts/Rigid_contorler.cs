@@ -10,6 +10,7 @@ public class Rigid_contorler : MonoBehaviour {
 	private Transform myTrans;
 	private Quaternion myRot;
 	
+	public Vector3 startingSpot;
 	
 	//no clue how it works, but these are needed to rotate
 	private Quaternion deltaRotation;
@@ -27,7 +28,9 @@ public class Rigid_contorler : MonoBehaviour {
 		
 		ray = new Ray (transform.position, Vector3.down);
 		
-				
+		LoadNewScene lo = (LoadNewScene) GetComponent ("LoadNewScene");
+		
+		myTrans.position = lo.startingArea;
 	}
 	
 	private void Move(){
@@ -207,5 +210,9 @@ public class Rigid_contorler : MonoBehaviour {
 		ray = new Ray(transform.position, Vector3.down);
 		
 		if(isAirBorn == true || isJumping == true) isSprinting = false;
+	}
+	
+	void OnLevelWasLoaded(){
+		//Destroy(character);
 	}
 }

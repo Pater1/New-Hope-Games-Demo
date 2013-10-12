@@ -10,8 +10,6 @@ public class hover : MonoBehaviour {
 	
 	int localX, localZ;
 	
-	bool moveEast = false, moveNorth = false;
-	
 	void OnTriggerStay (Collider other){
 		
 		other.rigidbody.AddForce(Vector3.up * force, ForceMode.Acceleration);
