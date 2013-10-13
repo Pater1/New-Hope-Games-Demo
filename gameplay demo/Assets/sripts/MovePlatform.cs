@@ -25,6 +25,33 @@ public class MovePlatform : MonoBehaviour {
 		}
 	}
 	
+	void OnCollisionStay(Collision col){
+		if(travelAxis == "x"){
+			if(travelingTo == true){
+				col.gameObject.transform.position += Vector3.right * travelSpeed * Time.deltaTime;
+			}
+			if(travelingTo == false){
+				col.gameObject.transform.position -= Vector3.right * travelSpeed * Time.deltaTime;
+			}
+		}
+		if(travelAxis == "y"){
+			if(travelingTo == true){
+				col.gameObject.transform.position += Vector3.up * travelSpeed * Time.deltaTime;
+			}
+			if(travelingTo == false){
+				col.gameObject.transform.position -= Vector3.up * travelSpeed * Time.deltaTime;
+			}
+		}
+		if(travelAxis == "z"){
+			if(travelingTo == true){
+				col.gameObject.transform.position += Vector3.forward * travelSpeed * Time.deltaTime;
+			}
+			if(travelingTo == false){
+				col.gameObject.transform.position -= Vector3.forward * travelSpeed * Time.deltaTime;
+			}
+		}
+	}
+	
 	// Update is called once per frame
 	void Update () {
 		
