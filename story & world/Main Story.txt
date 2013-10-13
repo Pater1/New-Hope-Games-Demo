@@ -1,0 +1,225 @@
+?
+
+	Game Stories (opening and end cut-scene scripts and brief story ‘bulletpoints’)
+	Camera movements will be in brackets [ ]. Spoken lines will be in quotes “ ” and will have the speaker’s name before it. 
+	Character actions will be in parenthesis ( ) with the character’s name first, unless with a spoken line. 
+	Any time ‘you’ is used outside spoken lines, it is referring to the player.
+
+Prologue: 
+		Scars cut deep. So deep that in order to heal, all scars must be opened again. Only a bleeding scar may heal, 
+	and only a healing scar may bleed, but we must be wary of our scars. Opened scars do bleed profusely, and that blood 
+	rent from scars stains all that come in contact with it, becoming more scars. In this way, it may seem that the only 
+	way to heal a scar is to cover the world in so many that one may be smothered by the rest. As such, only a scared world
+	may hold a scared man, and only a scared man may live in this scared world.	
+	
+Hero:
+		[Fade in] on a slowly panning shot over a small city only about two square miles, comprised mostly of stone buildings, 
+	arranged in a star shaped pattern around a central park with five small dirt roads reaching out to the ‘points’ of the 
+	star, only one leading to the simple wooden gates of the city all surrounded by farmland, and a huge, random mountain 
+	about a mile behind the city. The weather is dreary at best with rain pouring down in sheets, and howling wind causing 
+	the trees to sway and bend to the point where they resemble rubber with some of the smaller ones snapped in half and 
+	blowing around the town.
+	
+		[Quickly zoom in] to a long, narrow, single story house with a plain, tile roof, half-log walls, and a tall brick-and-motor 
+	chimney. Suddenly a flash of lightning hits the base of the chimney, with a return flash from the center of the house, setting 
+	the house ablaze.
+	
+		[Cut to a scene of] two shadowy figures running past a baby of about 18 months of age, slowing only enough to pick him up on
+	their way. 
+	
+		[Cut to an open doorway framed in flame] peering into a room engulfed in this inferno. Just enough visibility is left to see 
+	a dining room table and fireplace on the right, a small staircase to the left, and a large, flaming beam above. The silhouettes,
+	one masculine and one feminine, are rushing down the stairs, the woman clearly holding a small child while trailing the man. 
+	Just as it seems they would make it to safety, the beam falls on the woman, pinning her from the waist down. The man grabs the 
+	baby and troughs him out the door.
+	
+		[Cut to a shot behind the child, just over his shoulder, still able to see into the doorway] the little one stands up 
+	resiliently to the left of the frame, with just enough of an angle to see the corner of his eye. The man quickly turns back 
+	to the pinned woman, and attempts, to pull her out. Before either could hope to escape, the chimney falls on the house, 
+	crushing everything except the left, front corner of the house, leaving nothing but some rubble, a few stairs, a small bench, 
+	and just enough of the roof to span over the spared bench. You see a tear slowly trickle down the little one’s face.
+	
+		The child begins to dottle toward the demolished house, with the camera slowly panning to keep up with him. He climbs over 
+	the rubble that fills the old doorway, walks past a dieing flame left in the rubble, and sits on the bench, solemnly, silently.
+	
+		[Fade into the same shot] about twenty years into the future, the child in now grown, but is still sitting in the same 
+	solemn silence as before.
+	
+		Dustin: “Hey, Connor, wake up” he says as he walks in from the right, stoops down next to the bench, and gently shake Connor
+		
+		Connor: “*confused* hu… what?”
+		
+		Dustin: (stands back up) “you were drifting off again.”
+	
+		Connor: “ohh… a, sorry” (stands up as well)
+	
+		Dustin: “Don’t worry about it. Here, let’s go to the coliseum. We need to get warmed up for the upcoming season.”
+	
+		Connor: “Sure, that sounds like a good idea.”
+	
+		(Both walk off to the left, Dustin’s hand guiding Connor)
+
+		Both are now in the coliseum. You now have Tutorial on basic game and combat mechanics. When finished, the screen fades to
+	white as the two walk towards the entrance to the coliseum.
+
+		[Fade in] With the two men walking through the streets of the town, in front of the armorer. 
+		
+		Connor:”Thanks, I needed something to get my head out of the clouds.”
+		
+		Dustin:”Ya, it was a nice warm-up.”
+		
+		Connor:”You know what? We should go do something before the season starts, but what?”
+		
+		Dustin:”I hear there’s this new ‘treasure hunting’ fad, why not try that?”
+		
+		Connor:”That’s a good idea!!! I know just the place to!”
+		
+		Dustin:”wait, you’re serious?”
+		
+		Connor:”Of course I’m serious. That sounds like fun. I heard of this place down in Theera. Supposedly, there’s a cave in the
+	side of this huge mountain with some amassing treasure deep inside.  I’ve even heard rumor that whoever enters that cave had 
+	never returned.”
+		
+		Dustin:”and you still want to go? … Well, I guess there’s no way I can convince you just how insane this is. *sigh* fine, 
+	grab whatever it is that you need. I’ll be waiting by the city gates. Let me know when you’re ready to go.”
+		
+		You are now able to wander around the town as long as you would like, and access all the shops to purchase whatever you may
+	need for the up-coming journey.
+		
+		Dustin is standing by the city gates. When you speak to him…
+		
+		Dustin: “all ready? It’s a long hike out to where your planning.”
+		
+		Connor: “We’ll be fine, I got all the stuff we need. Now let’s get going!”
+		
+		Dustin: “Fine After You.”
+		
+		(The screen fades to white as both walk out of the city gates.)
+
+
+Villain:
+		[Fade in] on a slowly panning shot over a small city only about two square miles, comprised mostly of stone buildings, arranged 
+	in a star shaped pattern around a central park with five small dirt roads reaching out to the ‘points’ of the star, only one leading to the simple wooden gates of the city all surrounded by farmland, and a huge, random mountain about a mile behind the city. The weather is dreary at best with rain pouring down in sheets, and howling wind causing the trees to sway and bend to the point where they resemble rubber with some of the smaller ones snapped in half and blowing around the town.
+
+		[Quickly zoom in] to a long, narrow, single story house with a plain, tile roof, half-log walls, and a tall brick-and-motor 
+	chimney. Suddenly a flash of lightning hits the base of the chimney, with a return flash from the center of the house, setting 
+	the house ablaze.
+		
+		[Cut to a wide shot showing] a closed door in the side of the house, and an old man in a dusty, stained lab coat, slowly 
+	walking towards the door. [zoom in to see over the old man’s left shoulder] as he opens the door, to see a young child of about
+	3 years sitting up in his bed in this tiny room, the size of a walk-in closet.
+		
+		[Cut to the same view from over the child’s shoulder] 
+		
+		Dr. Wilson:  (reaches out and offers the child he hand.) “Come on, I’ll bring you somewhere better.”
+		
+		Eric: “ok” (stands up and walks out the door)
+		
+		[Cut to a scene of the two getting into an old, rusty pickup with the burning house still close in the background.] 
+	(The old man stops for a moment, and looks back at the house,) just then the house collapses. (He gets in and promptly drives off)
+		
+		[Cut to a shot from inside the car, cutting between looking at the child and looking at the old man, depending on who’s 
+	talking]
+		
+		Dr. Wilson: “so, what’s your name?”
+		
+		Eric: “I’m Eric, What’s your name?”
+		
+		Dr. Wilson “Well, you can call me Doctor Wilson.”
+		
+		Eric: *short pause* “Mr. Wilson, does this mean we’re friends now?”
+		
+		Dr. Wilson: “Yes… We’re friends now, now and forever.”
+		
+		[Cut to a clip of Eric smiling, looking out through the window. Then, slowly fade to about twenty years in the future]
+		
+		Eric: “how long till we get there doc?”
+		
+		Dr. Wilson: “Well, if you must know, we’re here.”
+		
+		Eric: (look up from the window to see out of windshield) “and where would ‘here’ be?”
+		
+		Dr. Wilson: “The new lab, since I was kicked out of my old one.”
+		
+		(Dr. Wilson parks the truck, now sporting a canopy, in front of this rickety, old warehouse, and walks around to the back)
+		
+		Eric: “may I ask why this new lab must be out in the middle of nowhere?”
+		
+		Dr. Wilson: “privacy, I was tired of thieves constantly ruining my work. Don’t worry; you’ll still get cable out here.”
+		
+		Eric: (rolls eyes) *sarcastically* “yay”
+		
+		Dr. Wilson: “Benjamin, would you mind helping me unload some of this stuff?”
+		
+		(Ben jumps out of the back of the truck.)
+		
+		Ben: “shure ting bosss.”
+		
+		Eric: “Oh, great, you brought the lumbering buffoon. And here I thought I’d finally get to hear something other than 
+	breaking glass and breached gas lines. I’ll be inside if anyone wants me.”
+		
+		(Eric then walks inside the warehouse holding his katana.)
+		
+		Ben: “That wasn’t very nice.” (Begins to tear up)
+		
+		Dr. Wilson: “It’s alright Ben, he’ just tired from the ride. Ben, why don’t you get to unloading, I could use a nap.”
+		
+		Ben: “ok doc, I’ll get workin’.”
+		
+		(Dr. Wilson walks inside the warehouse while Ben begins unloading a stack of boxes from the back of the truck.) 
+	[Cut to a wide shot inside the warehouse showing Dr. Wilson walking through the door with the camera looking over Eric’s 
+	shoulder. The camera slowly pans out as Dr. Wilson walks closer to Eric, who is reclining on a small sofa in front of a tiny 
+	TV with a heavily static-ed picture. Eric’s katana is leaning against the arm of the sofa.] 
+		
+		Dr. Wilson: “So, what are you watching?”
+		
+		Eric: “Static, mostly”
+		
+		(Dr. Wilson leans on the back of the sofa once he approaches it.)
+		
+		Dr. Wilson: “Oh! I love that show, so consistent.” (Now sporting a big smile)
+		
+		Eric: (glances over at Dr. Wilson, completely unimpressed) “really?” (Looks back at the TV, and flips the channel to a 
+	news report that’s coming in better than most of the stations up until that point, but still very static-laden. The shot is of
+	a reporter standing in front of the smoldering remains of a burnt building).
+		
+		Reporter: We are here at the Porter residence in Canterbury, speaking with Professor Porter who was out on a research 
+	expedition when this tragedy occurred.
+		
+		Dr. Wilson: “Professor Porter! Do they mean Eustace? I’ve always wondered what he was doing after he retired. Old habits 
+	die hard apparently.”
+		
+		Reporter: “So how do you plan to cope with this calamity?”
+		
+		Prof. Porter: “I plan to continue my research my research with my daughter.”
+		
+		Reporter: “I see” (turns toward the camera) “unfortunately, the Professor’s daughter has already denied an interview.” 
+	(Puts his finger in his ear) “This just in, a bystander has delivered a video tape to the station, claiming that it is a 
+	recording of this incident. Hold on as we play the clip.”
+		
+		(The TV screen cuts to a washed-out scene where stands a building, quite off in the distance, but can still be clearly 
+	seen to be engulfed in massive, rolling flame. Even from the great distance faint, screams of people inside the inferno can 
+	be heard.) [The camera cuts to Eric’s face, and quickly zooms in on his eye where the building can be clearly seen in reflection.] 
+	(The building then collapses and the screen quickly fades to white. A few pictures and sound clips from when Eric was a little boy 
+	in the burning house then fade over the white screen.)[After a few snapshots, in a flash of white, the camera cuts to an overhead 
+	view of Eric and Dr. Wilson.] (Eric silently stands, grabs his katana, and walks out of the warehouse, with Dr. Wilson silently 
+	following.) [Cut to a shot of Eric walking away from the warehouse, looking over his shoulder to see Dr. Wilson close behind] 
+	(Dr. Wilson stops walking and leans on the old truck as Eric walks out of frame to reveal Ben returning for his next load of boxes.)
+		
+		Ben: “What’s wrong wit ‘im?”
+		
+		Dr. Wilson: “Looks like another flash-back, and from what I can see, there’s a dead man still roaming amongst us. Come on
+	Ben, pack up the truck.”
+		
+		Ben: “But Doc I jist finished UN-loadin’ it.”
+		
+		Dr. Wilson: “Benjamin, we haven’t time to dawdle. Get the truck loaded.”
+		
+		Ben: “ok doc”
+		
+		(Ben goes back to re-load all of the boxes he just unloaded. Dr. Wilson looks up to the sky, and the camera pans up to the 
+	sky, and fades out.)
+
+	
+Hero:
+	
