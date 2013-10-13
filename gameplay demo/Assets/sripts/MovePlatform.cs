@@ -13,7 +13,11 @@ public class MovePlatform : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		
+		if(travelDistance < 0) travelDistance = travelDistance * -1;
+		
 		startingVector = transform.position;
+		
 		if(travelAxis == "x"){
 			endingVector = new Vector3 (startingVector.x + travelDistance,startingVector.y,startingVector.z);
 		}
@@ -55,20 +59,19 @@ public class MovePlatform : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		Rigid_contorler rc = (Rigid_contorler) GetComponent ("Rigid_contorler");
 		
-		if(transform.position == startingVector){
-			travelingTo = true;	
-		}
-		if(transform.position == endingVector){
-			travelingTo = false;	
-		}
 		if(travelAxis == "x"){
 			if(travelingTo == true){
 				transform.position += Vector3.right * travelSpeed * Time.deltaTime;
 			}
 			if(travelingTo == false){
 				transform.position -= Vector3.right * travelSpeed * Time.deltaTime;
+			}
+			if(transform.position.x > endingVector.x){
+				travelingTo = false;	
+			}
+			if(transform.position.x < startingVector.x){
+				travelingTo = true;	
 			}
 		}
 		if(travelAxis == "y"){
@@ -78,6 +81,12 @@ public class MovePlatform : MonoBehaviour {
 			if(travelingTo == false){
 				transform.position -= Vector3.up * travelSpeed * Time.deltaTime;
 			}
+			if(transform.position.y > endingVector.y){
+				travelingTo = false;	
+			}
+			if(transform.position.y < startingVector.y){
+				travelingTo = true;	
+			}
 		}
 		if(travelAxis == "z"){
 			if(travelingTo == true){
@@ -85,6 +94,12 @@ public class MovePlatform : MonoBehaviour {
 			}
 			if(travelingTo == false){
 				transform.position -= Vector3.forward * travelSpeed * Time.deltaTime;
+			}
+			if(transform.position.z > endingVector.z){
+				travelingTo = false;	
+			}
+			if(transform.position.z < startingVector.z){
+				travelingTo = true;	
 			}
 		}
 	}
