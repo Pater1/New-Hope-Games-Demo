@@ -192,12 +192,9 @@ public class Rigid_contorler : MonoBehaviour {
 		
 		if(Physics.Raycast(groundRay,out groundOut,4)){
 			isAirBorn = false;
+			slope = groundOut.normal;
 		}else{
 			isAirBorn = true;
-		}
-		
-		if(Physics.Raycast(groundRay,out groundOut)){			
-			slope = groundOut.normal;
 		}
 		
 		if(Physics.Raycast(wallRay,out groundOut,2)){

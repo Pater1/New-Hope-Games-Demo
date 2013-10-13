@@ -37,10 +37,10 @@
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity(2)/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity(2)/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -114,11 +114,13 @@
      <Compile Include="Assets\sripts\Enemy_combat.cs" />
      <Compile Include="Assets\sripts\Enemy_health_tracking.cs" />
      <Compile Include="Assets\sripts\LoadNewScene.cs" />
+     <Compile Include="Assets\sripts\MovePlatform.cs" />
      <Compile Include="Assets\sripts\Player_Combat.cs" />
      <Compile Include="Assets\sripts\Rigid_contorler.cs" />
      <Compile Include="Assets\sripts\SpawnEnemy.cs" />
      <Compile Include="Assets\sripts\SpawnItems.cs" />
      <Compile Include="Assets\sripts\SwimTrigger.cs" />
+     <Compile Include="Assets\sripts\SwingDoor.cs" />
      <Compile Include="Assets\sripts\ally_targeting.cs" />
      <Compile Include="Assets\sripts\hover.cs" />
      <Compile Include="Assets\sripts\steadyRot.cs" />

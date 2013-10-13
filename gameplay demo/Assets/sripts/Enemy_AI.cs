@@ -8,13 +8,13 @@ public class Enemy_AI : MonoBehaviour {
 	
 	public float direction;
 	
-	public string idleBehavior = "BoundWander";
+	public string idleBehavior = "BoundWander", traversionStyle = "walk";
 	
 	public Transform myTrans;
-	public Vector3 initialTrans;
+	public Vector3 initialTrans, newLookAtSpot;
 	public bool isFollowing;
 	
-	public float curDisRand, curRotRand, rotRandUpdate, updateRand;
+	public float curDisRand, curRotRand, rotRandUpdate, updateRand, curFloatRand;
 	
 	
 	// Use this for initialization
@@ -27,29 +27,45 @@ public class Enemy_AI : MonoBehaviour {
 		target = go.transform;
 		
 		curDisRand = Random.Range(0,moveSpeed);
-		rotRandUpdate = Random.Range(-360, 360);	
+		rotRandUpdate = Random.Range(-360, 360);
+		
+		newLookAtSpot = new Vector3(Random.Range(myTrans.position.x - 5,myTrans.position.x + 5),Random.Range(myTrans.position.y - 5,myTrans.position.y + 5),Random.Range(myTrans.position.z - 5,myTrans.position.z + 5));
 	}
 	
 	private void FreeWander(){
 		
 		updateRand = Random.Range(0,5);
 		
-		if(updateRand == 0){
-			curDisRand = Random.Range(0,moveSpeed);
-			rotRandUpdate = Random.Range(-360, 360);
+		if(traversionStyle == "walk"){
+			if(updateRand == 0){
+				curDisRand = Random.Range(0,moveSpeed);
+				rotRandUpdate = Random.Range(-360, 360);
+			}
+			
+			if(curDisRand < moveSpeed/5) curDisRand = 0;
+			
+			if(rotRandUpdate > 200 || rotRandUpdate < -200){
+				curRotRand = rotRandUpdate;	
+			}	
+			
+			myTrans.position += myTrans.forward * curDisRand* Time.deltaTime;
+			
+			myTrans.rotation = Quaternion.Slerp(myTrans.rotation, Quaternion.Euler(myTrans.up * curRotRand), Time.deltaTime);
 		}
-		
-		if(curDisRand < moveSpeed/5) curDisRand = 0;
-		
-		if(rotRandUpdate > 200 || rotRandUpdate < -200){
-			curRotRand = rotRandUpdate;	
-		}	
-		
-		myTrans.position += myTrans.forward * curDisRand* Time.deltaTime;
-		
-		myTrans.rotation = Quaternion.Slerp(myTrans.rotation, Quaternion.Euler(myTrans.up * curRotRand), Time.deltaTime);
-		
-		
+		if(traversionStyle == "float"){
+			
+			if(updateRand == 0){
+				curDisRand = Random.Range(0,moveSpeed);
+				newLookAtSpot = new Vector3(
+					(float)Random.Range(-Random.Range(myTrans.position.x - initialTrans.x, myTrans.position.x),Random.Range(myTrans.position.x - initialTrans.x,myTrans.position.x)),
+					(float)Random.Range(-Random.Range(myTrans.position.y - initialTrans.y, myTrans.position.y),Random.Range(myTrans.position.y - initialTrans.y,myTrans.position.y)),
+					(float)Random.Range(-Random.Range(myTrans.position.z - initialTrans.z, myTrans.position.z),Random.Range(myTrans.position.z - initialTrans.z,myTrans.position.z))
+					);
+			}			
+			myTrans.rotation = Quaternion.Slerp(myTrans.rotation,Quaternion.LookRotation(newLookAtSpot),Time.deltaTime);
+			
+			myTrans.position += myTrans.forward * curDisRand* Time.deltaTime;
+		}
 	}
 	
 	private void BoundWander(){
