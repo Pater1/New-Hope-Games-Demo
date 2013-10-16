@@ -6,7 +6,7 @@ public class Rigid_contorler : MonoBehaviour {
 	public float maxSpeedForward = 20, maxSpeedBack = 15, maxJumpDuration = 5, vertSwimSpeed = 5, horSwimSpeed = 10;
 	public float accelerationFactor = .5f, maxSprintMultiplier = 3, maxSprintTime = 5, jumpSpeed = 7;
 	private float curJumpDuration, curSprintTime, curSpeedForward, curSpeedBackwards, curSprintMultiplier;	
-	public bool isMovingForward, isTurningRight, isTurningLeft, isMovingBackwards, isSprinting, isAirBorn, isJumping, isSwimming, isSliding;
+	public bool canMove = true, isMovingForward, isTurningRight, isTurningLeft, isMovingBackwards, isSprinting, isAirBorn, isJumping, isSwimming, isSliding;
 	private Transform myTrans;
 	private Quaternion myRot;
 	
@@ -225,13 +225,17 @@ public class Rigid_contorler : MonoBehaviour {
 		CheckButtons();
 		
 		FindMovement();
-
-		Move();
+		
+		if(canMove == true){
+			Move();
+		}
 		
 		FindObstacles();
 		
 		SlopeCalc();
 		
 		if(isAirBorn == true || isJumping == true) isSprinting = false;
+		
+		rigidbody.isKinematic = false;	
 	}
 }

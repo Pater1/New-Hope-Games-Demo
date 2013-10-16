@@ -8,6 +8,8 @@ public class LoadNewScene : MonoBehaviour {
 	public Vector3 startingArea;
 	public List<GameObject> players;
 	public int numberOfPlayers;
+	public bool isLocked = false;
+	public GameObject key;
 	
 	void Start(){
 		AddAllPlayer();	

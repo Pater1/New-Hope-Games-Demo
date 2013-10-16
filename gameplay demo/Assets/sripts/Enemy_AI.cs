@@ -1,20 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Enemy_AI : MonoBehaviour {
 	
 	public Transform target;
 	public int moveSpeed = 10, rotSpeed = 30, maxDistance = 100, minDistance = 2;
-	
 	public float direction;
 	
-	public string idleBehavior = "BoundWander", traversionStyle = "walk";
-	
-	public Transform myTrans;
-	public Vector3 initialTrans, newLookAtSpot;
+	private Transform myTrans;
+	private Vector3 initialTrans, newLookAtSpot;
 	public bool isFollowing;
 	
-	public float curDisRand, curRotRand, rotRandUpdate, updateRand, curFloatRand;
+	/*idle behavior variables*/
+	public string idleBehavior = "BoundWander", traversionStyle = "walk";
+	private float curDisRand, curRotRand, rotRandUpdate, updateRand, curFloatRand;
+	
+	/*Pathfinding variables*/
+	public bool needFindPath;
+	public float testDistance = 1000, testAngle;
+	public Vector3 testVector, testDirection;
+	public Ray testRay, targetRay;
+	public RaycastHit testHit, targetHit;
 	
 	
 	// Use this for initialization
@@ -26,20 +33,52 @@ public class Enemy_AI : MonoBehaviour {
 		GameObject go = GameObject.FindGameObjectWithTag("Player");
 		target = go.transform;
 		
-		curDisRand = Random.Range(0,moveSpeed);
-		rotRandUpdate = Random.Range(-360, 360);
+		curDisRand = UnityEngine.Random.Range(0,moveSpeed);
+		rotRandUpdate = UnityEngine.Random.Range(-360, 360);
 		
-		newLookAtSpot = new Vector3(Random.Range(myTrans.position.x - 5,myTrans.position.x + 5),Random.Range(myTrans.position.y - 5,myTrans.position.y + 5),Random.Range(myTrans.position.z - 5,myTrans.position.z + 5));
+		newLookAtSpot = new Vector3(UnityEngine.Random.Range(myTrans.position.x - 5,myTrans.position.x + 5),UnityEngine.Random.Range(myTrans.position.y - 5,myTrans.position.y + 5),UnityEngine.Random.Range(myTrans.position.z - 5,myTrans.position.z + 5));
+	}
+	
+	public void FindPath(){
+				
+		testVector = new Vector3(((float)Math.Cos(testAngle) * testDistance) + myTrans.position.x,
+								myTrans.position.y,
+								(float)(Math.Sin(testAngle) * testDistance + myTrans.position.z));
+		
+		testVector.Normalize();
+		
+		testDirection = (myTrans.position - testVector).normalized;
+		
+		testDirection.Normalize();
+		
+		
+		
+		targetRay = new Ray(myTrans.position,testDirection);
+		
+		if(collider.Raycast(testRay,out testHit, testDistance)){
+			if(targetHit.collider.gameObject.tag != "Player"){
+				needFindPath = true;
+				Debug.Log("ray and tag work");
+			}else{
+				Debug.Log("Ray works");	
+			}
+		}else{
+			Debug.Log("Ray doesn't work");	
+		}
+		
+		
+		
+		Debug.DrawRay(myTrans.position,testDirection, Color.blue);
 	}
 	
 	private void FreeWander(){
 		
-		updateRand = Random.Range(0,5);
+		updateRand = UnityEngine.Random.Range(0,5);
 		
 		if(traversionStyle == "walk"){
 			if(updateRand == 0){
-				curDisRand = Random.Range(0,moveSpeed);
-				rotRandUpdate = Random.Range(-360, 360);
+				curDisRand = UnityEngine.Random.Range(0,moveSpeed);
+				rotRandUpdate = UnityEngine.Random.Range(-360, 360);
 			}
 			
 			if(curDisRand < moveSpeed/5) curDisRand = 0;
@@ -55,11 +94,11 @@ public class Enemy_AI : MonoBehaviour {
 		if(traversionStyle == "float"){
 			
 			if(updateRand == 0){
-				curDisRand = Random.Range(0,moveSpeed);
+				curDisRand = UnityEngine.Random.Range(0,moveSpeed);
 				newLookAtSpot = new Vector3(
-					(float)Random.Range(-Random.Range(myTrans.position.x - initialTrans.x, myTrans.position.x),Random.Range(myTrans.position.x - initialTrans.x,myTrans.position.x)),
-					(float)Random.Range(-Random.Range(myTrans.position.y - initialTrans.y, myTrans.position.y),Random.Range(myTrans.position.y - initialTrans.y,myTrans.position.y)),
-					(float)Random.Range(-Random.Range(myTrans.position.z - initialTrans.z, myTrans.position.z),Random.Range(myTrans.position.z - initialTrans.z,myTrans.position.z))
+					(float)UnityEngine.Random.Range(-UnityEngine.Random.Range(myTrans.position.x - initialTrans.x, myTrans.position.x),UnityEngine.Random.Range(myTrans.position.x - initialTrans.x,myTrans.position.x)),
+					(float)UnityEngine.Random.Range(-UnityEngine.Random.Range(myTrans.position.y - initialTrans.y, myTrans.position.y),UnityEngine.Random.Range(myTrans.position.y - initialTrans.y,myTrans.position.y)),
+					(float)UnityEngine.Random.Range(-UnityEngine.Random.Range(myTrans.position.z - initialTrans.z, myTrans.position.z),UnityEngine.Random.Range(myTrans.position.z - initialTrans.z,myTrans.position.z))
 					);
 			}			
 			myTrans.rotation = Quaternion.Slerp(myTrans.rotation,Quaternion.LookRotation(newLookAtSpot),Time.deltaTime);
@@ -72,11 +111,11 @@ public class Enemy_AI : MonoBehaviour {
 		
 		bool isOutOfBounds = false;
 		
-		updateRand = Random.Range(0,5);
+		updateRand = UnityEngine.Random.Range(0,5);
 		
 		if(updateRand == 0){
-			curDisRand = Random.Range(0,moveSpeed);
-			rotRandUpdate = Random.Range(-360, 360);
+			curDisRand = UnityEngine.Random.Range(0,moveSpeed);
+			rotRandUpdate = UnityEngine.Random.Range(-360, 360);
 		}
 		
 		if(curDisRand < moveSpeed/5) curDisRand = 0;
@@ -96,7 +135,7 @@ public class Enemy_AI : MonoBehaviour {
 			
 			myTrans.position += myTrans.forward * curDisRand* Time.deltaTime;
 			
-			myTrans.rotation = Quaternion.Slerp(myTrans.rotation, Quaternion.LookRotation(initialTrans - myTrans.position + new Vector3 (Random.Range(-Vector3.Distance(myTrans.position,initialTrans),Vector3.Distance(myTrans.position,initialTrans))*2,0,Random.Range(-Vector3.Distance(myTrans.position,initialTrans),Vector3.Distance(myTrans.position,initialTrans))*2)),Time.deltaTime);
+			myTrans.rotation = Quaternion.Slerp(myTrans.rotation, Quaternion.LookRotation(initialTrans - myTrans.position + new Vector3 (UnityEngine.Random.Range(-Vector3.Distance(myTrans.position,initialTrans),Vector3.Distance(myTrans.position,initialTrans))*2,0,UnityEngine.Random.Range(-Vector3.Distance(myTrans.position,initialTrans),Vector3.Distance(myTrans.position,initialTrans))*2)),Time.deltaTime);
 			
 		}else{	
 			
@@ -109,6 +148,9 @@ public class Enemy_AI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+		//FindPath();
+		
 		if (isFollowing == true){
 			if (Vector3.Distance(target.position, myTrans.position) > minDistance){
 				//Look at target

@@ -113,6 +113,7 @@
      <Compile Include="Assets\sripts\Enemy_AI.cs" />
      <Compile Include="Assets\sripts\Enemy_combat.cs" />
      <Compile Include="Assets\sripts\Enemy_health_tracking.cs" />
+     <Compile Include="Assets\sripts\InventoryControl.cs" />
      <Compile Include="Assets\sripts\LoadNewScene.cs" />
      <Compile Include="Assets\sripts\MovePlatform.cs" />
      <Compile Include="Assets\sripts\Player_Combat.cs" />
@@ -123,6 +124,10 @@
      <Compile Include="Assets\sripts\SwingDoor.cs" />
      <Compile Include="Assets\sripts\ally_targeting.cs" />
      <Compile Include="Assets\sripts\hover.cs" />
+     <Compile Include="Assets\sripts\item behaviors\BombBehavior.cs" />
+     <Compile Include="Assets\sripts\item behaviors\ParentBombEffects.cs" />
+     <Compile Include="Assets\sripts\itemControl.cs" />
+     <Compile Include="Assets\sripts\itemUse.cs" />
      <Compile Include="Assets\sripts\steadyRot.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />

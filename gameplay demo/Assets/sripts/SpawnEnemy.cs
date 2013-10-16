@@ -35,8 +35,8 @@ public class SpawnEnemy : MonoBehaviour {
        		timeSinceLastSpawn = Time.time; //Set the current time
    		}else{
 		
-			if(curEnemys.Count < maxNumberOfEnemys && (int)(Time.time - timeSinceLastSpawn) == spawnDelay){
-				Instantiate (enemyToSpawn,spawnPlace, Quaternion.identity);
+			if(curEnemys.Count < maxNumberOfEnemys && (int)(Time.time - timeSinceLastSpawn) >= spawnDelay){
+				Instantiate (enemyToSpawn, spawnPlace, Quaternion.identity);
 				at.targets = new List<Transform>();
 				curEnemys = new List<Transform>();
 				AddAllEnemy();
@@ -51,7 +51,7 @@ public class SpawnEnemy : MonoBehaviour {
 			AddAllEnemy();
 		}
 		
-		Debug.Log((int)(Time.time - timeSinceLastSpawn));
+		//Debug.Log((int)(Time.time - timeSinceLastSpawn));
 	}
 	
 	public void AddAllEnemy(){

@@ -58,8 +58,7 @@ public class MovePlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		
+			
 		if(travelAxis == "x"){
 			if(travelingTo == true){
 				transform.position += Vector3.right * travelSpeed * Time.deltaTime;
