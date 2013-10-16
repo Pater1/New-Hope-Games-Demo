@@ -2,10 +2,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\sripts\InventoryControl.cs">
     <Files>
-      <File FileName="Assets\sripts\item behaviors\BombBehavior.cs" Line="7" Column="55" />
-      <File FileName="Assets\sripts\InventoryControl.cs" Line="39" Column="25" />
-      <File FileName="Assets\itemControl.cs" Line="7" Column="25" />
+      <File FileName="Assets\sripts\InventoryControl.cs" Line="216" Column="3" />
+      <File FileName="Assets\sripts\itemControl.cs" Line="8" Column="34" />
       <File FileName="Assets\sripts\itemUse.cs" Line="7" Column="64" />
+      <File FileName="Assets\sripts\Rigid_contorler.cs" Line="231" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

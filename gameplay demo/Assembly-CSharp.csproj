@@ -106,6 +106,7 @@
      <Compile Include="Assets\AstarPathfindingProject\Utilities\UnityReferenceHelper.cs" />
      <Compile Include="Assets\AstarPathfindingProject\changelog.cs" />
      <Compile Include="Assets\character stats\characterA base.cs" />
+     <Compile Include="Assets\equipment.cs" />
      <Compile Include="Assets\sripts\Ally_Health_Tracking.cs" />
      <Compile Include="Assets\sripts\DestroyDestroyables.cs" />
      <Compile Include="Assets\sripts\EmenyTriggers\EnemySightTrigger.cs" />
