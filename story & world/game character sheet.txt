@@ -1,4 +1,4 @@
-Character sheet: main hero
+﻿Character sheet: main hero
 
 Connor Pulte, Height: 5’10”, Weight: 220lb, age: 25, weapon group: heavy-melee, mystic: fire.		
 	Connor is a tall man with broad shoulders. He is known well as an arena fighter in The Empire, but never really had, or wanted, 
@@ -16,7 +16,7 @@ Penelope Vargas, Height: 5’4”, Weight: 160lb, age: 23, weapon group: light-m
 	light hits and hesitance to use mass weapons.
 
 Michal von Therrisbürg, Height: 5’8”, Weight: 200lb, age: 45, weapon group: heavy-ranged, mystic: ???.    
-    An old Knight admittedly past his prime with quite a “henkerin’ fer Bier”, and a belly to match. He is the wise, reserved one 
+    	An old Knight admittedly past his prime with quite a “henkerin’ fer Bier”, and a belly to match. He is the wise, reserved one 
 	of the group and had an instant connection with Dustin ensuring his inclusion in the group. Although a little out of practice 
 	Michal is still a respectable sword hand who is well suited for most weapons.
  
@@ -35,16 +35,16 @@ Benjamin Darce, Height: 6’ 6”, Weight: 275lb, age: 29, weapon group: heavy-r
 	often causing problems for the team. Ben likes to stick with what he knows, brute force and explosions, and trends toward weapons 
 	that offer both.
 
-Samantha ???, Height: 4’ 10”, Weight: 120, age: 12, weapon group: heavy-melee, mystic: void
+Samantha Porter, Height: 4’ 10”, Weight: 120, age: 12, weapon group: heavy-melee, mystic: void
 	 A little girl with a massive inferiority complex, so much so that she insists on using weapons larger than her. She is also 
 	 very sensitive, especially about her wings which were injured in an accident, with these she can fly but can’t stay aloft for 
-	 very long. This doesn’t mean she is week though, equally acrobatic on the ground as in the air, she often dances circles around
+	 very long. This doesn’t mean she is weak though, equally acrobatic on the ground as in the air, she often dances circles around
 	 her opponents before killing them.
 
 Dr. Magus Wilson, Height: 5’8”, Weight: 170, age: 64, weapon group: light-ranged, mystic: ???.
 	An old inventor who just refuses to stop. Nearly everything of technological value is based off of his work with neutronic
 	power. He has recently been exiled from the lab he was working in when word got out that he was working on time travel. His 
-	colleges swear he’s gone mad, Dr. Wilson is certain he is, “so very close, there’s only a few bugs to work out.” Despite his 
+	colleges swear he’s gone mad. Dr. Wilson is certain he is, “so very close, there’s only a few bugs to work out.” Despite his 
 	feeble frame, this man is not a stranger to combat. Often, before being fired for insanity, thieves would try to burglarize his
 	lab. In efforts to protect his work he has gotten surprisingly effective with small weaponry from a distance, but lacks the 
 	sturdiness to handle anything much larger.

@@ -1,4 +1,4 @@
-?
+﻿?
 
 	Game Stories (opening and end cut-scene scripts and brief story ‘bulletpoints’)
 	Camera movements will be in brackets [ ]. Spoken lines will be in quotes “ ” and will have the speaker’s name before it. 
@@ -35,7 +35,7 @@ Hero:
 	
 		[Cut to a shot behind the child, just over his shoulder, still able to see into the doorway] the little one stands up 
 	resiliently to the left of the frame, with just enough of an angle to see the corner of his eye. The man quickly turns back 
-	to the pinned woman, and attempts, to pull her out. Before either could hope to escape, the chimney falls on the house, 
+	to the pinned woman, and attempts to pull her out. Before either could hope to escape, the chimney falls on the house, 
 	crushing everything except the left, front corner of the house, leaving nothing but some rubble, a few stairs, a small bench, 
 	and just enough of the roof to span over the spared bench. You see a tear slowly trickle down the little one’s face.
 	
@@ -99,7 +99,10 @@ Hero:
 
 Villain:
 		[Fade in] on a slowly panning shot over a small city only about two square miles, comprised mostly of stone buildings, arranged 
-	in a star shaped pattern around a central park with five small dirt roads reaching out to the ‘points’ of the star, only one leading to the simple wooden gates of the city all surrounded by farmland, and a huge, random mountain about a mile behind the city. The weather is dreary at best with rain pouring down in sheets, and howling wind causing the trees to sway and bend to the point where they resemble rubber with some of the smaller ones snapped in half and blowing around the town.
+	in a star shaped pattern around a central park with five small dirt roads reaching out to the ‘points’ of the star, only one leading to the
+	simple wooden gates of the city all surrounded by farmland, and a huge, random mountain about a mile behind the city. The weather is dreary at
+ 	best with rain pouring down in sheets, and howling wind causing the trees to sway and bend to the point where they resemble rubber with some of the 
+	smaller ones snapped in half and blowing around the town.
 
 		[Quickly zoom in] to a long, narrow, single story house with a plain, tile roof, half-log walls, and a tall brick-and-motor 
 	chimney. Suddenly a flash of lightning hits the base of the chimney, with a return flash from the center of the house, setting 

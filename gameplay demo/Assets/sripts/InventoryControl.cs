@@ -228,7 +228,7 @@ public class InventoryControl : MonoBehaviour {
 			if(selectedY >= 0){
 				selectedItem = itemsInInventory[(int)(selectedX+selectedY*Cols) + 2];
 			}else{
-				if(selectedX < 1 /*&& ic.itemType == "armour"*/){
+				/*if(selectedX < 1 && ic.itemType == "armour"){
 					if(ic.moreSpecific == "helm" && selectedY == -3){
 						//itemsInInventory.Add(eq.armour[0]);
 						//itemTextures.Add(eq.amourTex[0]);
@@ -248,15 +248,69 @@ public class InventoryControl : MonoBehaviour {
 						eq.armour.Remove(eq.armour[2]);
 						eq.armour[2] = selectedItem;
 					}
-					if(/*ic.moreSpecific == "legs" &&*/ selectedY == 0){
+					if(ic.moreSpecific == "legs" && selectedY == 0){
 						itemsInInventory.Add(eq.armour[3]);
 						eq.armour.Remove(eq.armour[3]);
 						eq.armour[3] = selectedItem;
 						Debug.Log("tag issues");
 					}
 					Debug.Log("need fewer if's");
-				}else if(selectedX >=1 && selectedX <= 2){
-					eq.weapons.Add(selectedItem);
+				}else*/ if(ic.itemType == "weapon"){
+					if(selectedX ==1 && selectedY == -4){
+						eq.weapons[0] = selectedItem;
+						
+						itemsInInventory.Add(eq.weapons[0]);
+						itemTextures.Add(eq.weaponsTex[0]);
+					}
+					if(selectedX ==2 && selectedY == -4){
+						//itemsInInventory.Add(eq.weapons[0]);
+						//itemTextures.Add(eq.weaponsTex[0]);
+						
+						//eq.armour.Remove(eq.armour[0]);
+						eq.weapons[1] = selectedItem;
+					}
+					if(selectedX ==1 && selectedY == -3){
+						//itemsInInventory.Add(eq.weapons[0]);
+						//itemTextures.Add(eq.weaponsTex[0]);
+						
+						//eq.armour.Remove(eq.armour[0]);
+						eq.weapons[2] = selectedItem;
+					}
+					if(selectedX ==2 && selectedY == -3){
+						//itemsInInventory.Add(eq.weapons[0]);
+						//itemTextures.Add(eq.weaponsTex[0]);
+						
+						//eq.armour.Remove(eq.armour[0]);
+						eq.weapons[3] = selectedItem;
+					}
+					if(selectedX ==1 && selectedY == -2){
+						//itemsInInventory.Add(eq.weapons[0]);
+						//itemTextures.Add(eq.weaponsTex[0]);
+						
+						//eq.armour.Remove(eq.armour[0]);
+						eq.weapons[4] = selectedItem;
+					}
+					if(selectedX ==2 && selectedY == -2){
+						//itemsInInventory.Add(eq.weapons[0]);
+						//itemTextures.Add(eq.weaponsTex[0]);
+						
+						//eq.armour.Remove(eq.armour[0]);
+						eq.weapons[5] = selectedItem;
+					}
+					if(selectedX ==1 && selectedY == -1){
+						//itemsInInventory.Add(eq.weapons[0]);
+						//itemTextures.Add(eq.weaponsTex[0]);
+						
+						//eq.armour.Remove(eq.armour[0]);
+						eq.weapons[6] = selectedItem;
+					}
+					if(selectedX ==2 && selectedY == -1){
+						//itemsInInventory.Add(eq.weapons[0]);
+						//itemTextures.Add(eq.weaponsTex[0]);
+						
+						//eq.armour.Remove(eq.armour[0]);
+						eq.weapons[7] = selectedItem;
+					}
 				}else if(selectedX > 2 && ic.itemType != "amo"){
 					
 				}

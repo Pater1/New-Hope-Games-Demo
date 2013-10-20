@@ -2,10 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\sripts\InventoryControl.cs">
     <Files>
-      <File FileName="Assets\sripts\InventoryControl.cs" Line="251" Column="53" />
-      <File FileName="Assets\sripts\Rigid_contorler.cs" Line="231" Column="4" />
-      <File FileName="Assets\equipment.cs" Line="7" Column="47" />
-      <File FileName="Assets\sripts\itemControl.cs" Line="30" Column="34" />
+      <File FileName="Assets\sripts\equipment.cs" Line="1" Column="1" />
+      <File FileName="Assets\sripts\InventoryControl.cs" Line="263" Column="7" />
+      <File FileName="Assets\sripts\itemControl.cs" Line="1" Column="1" />
       <File FileName="Assets\sripts\itemUse.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

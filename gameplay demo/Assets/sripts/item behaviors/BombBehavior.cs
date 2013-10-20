@@ -12,12 +12,10 @@ public class BombBehavior : MonoBehaviour {
 	
 	public List<Transform> bombables, players, enemys, moveables;
 	
-	private float maxExplosionTime;
 	
 	// Use this for initialization
 	void Start () {
 		AddAllBombables();
-		maxExplosionTime = audio.clip.length;
 	}
 	
 	public void AddAllBombables(){
